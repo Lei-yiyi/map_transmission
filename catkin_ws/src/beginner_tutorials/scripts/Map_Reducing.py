@@ -239,8 +239,14 @@ class Reducing(object):
             print(len(dd))
 
         """
-        外接矩形：原点坐标变
+        外接矩形：原点坐标变（外接矩形不匹配，输出变化后的外接矩形内的全部数据）
         """
+        # 外接矩形：原点坐标不变，宽变，高变
+        if self.last_map is not None:
+            if map_adj.info.origin.position.x != self.last_map.info.origin.position.x or \
+                    map_adj.info.origin.position.y != self.last_map.info.origin.position.y:
+                print("外接矩形：原点坐标变，输出变化后的外接矩形内的全部数据：")
+                print(len(map_adj.data))
 
         # 保存最新时刻的数据
         self.last_map = map_adj
